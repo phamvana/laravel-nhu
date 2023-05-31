@@ -20,7 +20,7 @@ Route::get('/about', [
 
 
 //Sản phẩm
-Route::get('/products', [
+Route::get('/products-list', [
     ProductsController::class, 'index'
 ]);
 

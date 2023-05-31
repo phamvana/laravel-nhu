@@ -9,8 +9,9 @@ class ProductsController extends Controller
     //index function
     public function index()
     {
-
-        $title = 'Learn Laravel by Pham Van A';
-        return view('products.index', compact('title'));
+        return view( "admin.products.list",[
+            'title' => 'Thêm sản phẩm'
+        ]);
     }
+    
 }
