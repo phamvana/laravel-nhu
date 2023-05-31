@@ -23,6 +23,9 @@ Route::get('/about', [
 Route::get('/products-list', [
     ProductsController::class, 'index'
 ]);
+Route::get('/products-add', [
+    ProductsController::class, 'add'
+]);
 
 //Danh mục sản phẩm
 Route::get('/category-add', [
