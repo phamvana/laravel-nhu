@@ -9,6 +9,12 @@ class ProductsController extends Controller
     //index function
     public function index()
     {
+        return view( "products.index",[
+            'title' => 'Quản lý danh sách sản phẩm'
+        ]);
+    }
+    public function list()
+    {
         return view( "admin.product.list",[
             'title' => 'Quản lý danh sách sản phẩm'
         ]);

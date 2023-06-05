@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-primary elevation-4">
     <!-- Brand Logo -->
     <a class="navbar-brand" href="/">
         <img src="{{asset('storage/logo.jpg')}}" width="50px" height="50px" alt="logo" class="rounded-pill">
@@ -109,12 +109,11 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/customers" class="nav-link">
+                            <a href="/cart-admin" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh Sách Đơn Hàng</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
             </ul>

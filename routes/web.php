@@ -7,6 +7,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CartsController;
 //Trang chủ
 Route::get('/', [
     PagesController::class,
@@ -17,11 +18,18 @@ Route::get('/about', [
     PagesController::class,
     'about'
 ]);
-
+//Liên hệ
+Route::get('/lienhe', [
+    PagesController::class,
+    'contract'
+]);
 
 //Sản phẩm
-Route::get('/products-list', [
+Route::get('/products', [
     ProductsController::class, 'index'
+]);
+Route::get('/products-list', [
+    ProductsController::class, 'list'
 ]);
 Route::get('/products-add', [
     ProductsController::class, 'add'
@@ -31,11 +39,16 @@ Route::get('/products-add', [
 Route::get('/category-add', [
     CategoryController::class, 'index'
 ]);
+Route::post('/category-add',[CategoryController::class, 'store']);
 
 Route::get('/category-list', [
     CategoryController::class, 'list'
 ]);
 
+// Carts
+Route::get('/cart-admin', [
+    CartsController::class, 'index'
+]);
 
 //dịch vụ
 Route::get('service', [
@@ -55,13 +68,8 @@ Route::get('service', [
 */
 
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-    //return env('MY_NAME');
-});
 
-*/
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

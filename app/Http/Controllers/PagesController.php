@@ -17,10 +17,10 @@ class PagesController extends Controller
     public function about(){
         return view('about');
     }
-    public function login(){
+    public function contract(){
         
-        return view('admin.users.login',[
-            'title'=>"Đăng nhập vào hệ thống"
+        return view('contract',[
+            'title'=>"Liên hệ"
         ]);
     }
 

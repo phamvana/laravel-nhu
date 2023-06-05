@@ -15,7 +15,7 @@
                     <a class="nav-link" href="/about">Thông tin</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Liên hệ</a>
+                    <a class="nav-link" href="/lienhe">Liên hệ</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/products">Sản Phẩm</a>
