@@ -20,7 +20,7 @@ class Helper
                         <td>' . self::active($menu->active) . '</td>
                         <td>' . $menu->updated_at . '</td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="/admin/menus/edit/' . $menu->id . '">
+                            <a class="btn btn-primary btn-sm" href="/category-edit/' . $menu->id . '">
                                 <i class="fas fa-edit"></i>
                             </a>
                             <a href="#" class="btn btn-danger btn-sm"

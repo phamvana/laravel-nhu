@@ -44,6 +44,9 @@ Route::post('/category-add',[CategoryController::class, 'store']);
 Route::get('/category-list', [
     CategoryController::class, 'list'
 ]);
+Route::get('/category-edit/{menu}', [CategoryController::class, 'show']);
+Route::post('/category-edit/{menu}', [CategoryController::class, 'update']);
+Route::DELETE('category-destroy', [CategoryController::class, 'destroy']);
 
 // Carts
 Route::get('/cart-admin', [
