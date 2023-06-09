@@ -26,12 +26,15 @@ class ProductsController extends Controller
             'title' => 'Quản lý danh sách sản phẩm'
         ]);
     }
+    // Xem danh sách sản phẩm
     public function list()
     {
         return view( "admin.product.list",[
-            'title' => 'Quản lý danh sách sản phẩm'
+            'title' => 'Quản lý danh sách sản phẩm',
+            'products' => $this->productService->get()
         ]);
     }
+    //Thêm sản phẩm
     public function add()
     {
         return view( "admin.product.add",[
@@ -60,7 +63,7 @@ class ProductsController extends Controller
     {
         $result = $this->productService->update($request, $product);
         if ($result) {
-            return redirect('/admin/products/list');
+            return redirect('/products-list');
         }
 
         return redirect()->back();

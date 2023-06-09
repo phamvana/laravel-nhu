@@ -28,9 +28,14 @@ Route::get('/lienhe', [
 Route::get('/products', [
     ProductsController::class, 'index'
 ]);
+//Xem danh sách sản phẩm
 Route::get('/products-list', [
     ProductsController::class, 'list'
 ]);
+Route::get('/products-edit/{product}', [ProductsController::class, 'show']);
+Route::post('/products-edit/{product}', [ProductsController::class, 'update']);
+Route::DELETE('/products-destroy', [ProductsController::class, 'destroy']);
+//Thêm danh sách sản phẩm
 Route::get('/products-add', [
     ProductsController::class, 'add'
 ]);
@@ -38,11 +43,13 @@ Route::post('/products-add', [
     ProductsController::class, 'store'
 ]);
 
+
+
 //Danh mục sản phẩm
 Route::get('/category-add', [
     CategoryController::class, 'index'
 ]);
-Route::post('/category-add',[CategoryController::class, 'store']);
+Route::post('/category-add', [CategoryController::class, 'store']);
 
 Route::get('/category-list', [
     CategoryController::class, 'list'
