@@ -34,6 +34,9 @@ Route::get('/products-list', [
 Route::get('/products-add', [
     ProductsController::class, 'add'
 ]);
+Route::post('/products-add', [
+    ProductsController::class, 'store'
+]);
 
 //Danh mục sản phẩm
 Route::get('/category-add', [
@@ -77,3 +80,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/home/menus/add', [HomeController::class,'index']);
+// Upload file image
+Route::post('/upload', [\App\Http\Controllers\UploadController::class, 'store']);

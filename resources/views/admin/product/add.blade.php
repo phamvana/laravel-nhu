@@ -11,7 +11,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="menu">Tên Sản Phẩm</label>
-                        <input type="text" name="name" value="" class="form-control"  placeholder="Nhập tên sản phẩm">
+                        <input type="text" name="name" value="{{ old('name') }}" class="form-control"  placeholder="Nhập tên sản phẩm">
                     </div>
                 </div>
 
@@ -19,9 +19,9 @@
                     <div class="form-group">
                         <label>Danh Mục</label>
                         <select class="form-control" name="menu_id">
-                            
-                                <option value=""></option>
-                            
+                            @foreach($menus as $menu)
+                                <option value="{{ $menu->id }}">{{ $menu->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -31,21 +31,21 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="menu">Giá Gốc</label>
-                        <input type="number" name="price" value=""  class="form-control" >
+                        <input type="number" name="price" value="{{ old('price') }}"  class="form-control" >
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="menu">Giá Giảm</label>
-                        <input type="number" name="price_sale" value=""  class="form-control" >
+                        <input type="number" name="price_sale" value="{{ old('price_sale') }}"  class="form-control" >
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
                 <label>Mô Tả </label>
-                <textarea name="description" class="form-control"></textarea>
+                <textarea name="description" class="form-control">{{ old('content') }}</textarea>
             </div>
 
             <div class="form-group">
