@@ -24,7 +24,7 @@ class Helper
                                 <i class="fas fa-edit"></i>
                             </a>
                             <a href="#" class="btn btn-danger btn-sm"
-                                onclick="removeRow(' . $menu->id . ', \'/admin/menus/destroy\')">
+                                onclick="removeRow(' . $menu->id . ', \'/category-destroy\')">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>
