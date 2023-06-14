@@ -58,6 +58,10 @@ Route::get('/category-edit/{menu}', [CategoryController::class, 'show']);
 Route::post('/category-edit/{menu}', [CategoryController::class, 'update']);
 Route::DELETE('category-destroy', [CategoryController::class, 'destroy']);
 
+//Quản lý slide
+
+
+
 // Carts
 Route::get('/cart-admin', [
     CartsController::class, 'index'
@@ -68,19 +72,6 @@ Route::get('service', [
     ServiceController::class,
     'index'
 ]);
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
 
 
 Auth::routes();
