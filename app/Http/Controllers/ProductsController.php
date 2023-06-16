@@ -23,7 +23,8 @@ class ProductsController extends Controller
     public function index()
     {
         return view( "products.index",[
-            'title' => 'Quản lý danh sách sản phẩm'
+            'title' => 'Quản lý danh sách sản phẩm',
+            'products' => $this->productService->get()
         ]);
     }
     // Xem danh sách sản phẩm

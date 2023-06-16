@@ -2,6 +2,7 @@
 
 use App\User;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProductsHomeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PostsController;
@@ -28,6 +29,7 @@ Route::get('/lienhe', [
 Route::get('/products', [
     ProductsController::class, 'index'
 ]);
+//Route::get('san-pham/{id}-{slug}.html', [App\Http\Controllers\ProductController::class, 'index']);
 //Xem danh sách sản phẩm
 Route::get('/products-list', [
     ProductsController::class, 'list'
