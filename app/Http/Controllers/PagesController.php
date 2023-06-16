@@ -10,12 +10,14 @@ class PagesController extends Controller
 {
     //index
     public function index(){
-        return view('index');
+        return view('index',[
+            'title' => 'Trang chủ'
+        ]);
     }
 
     //about
     public function about(){
-        return view('about');
+        return view('about', ['title' => 'Về chúng tôi']);
     }
     public function contract(){
         
