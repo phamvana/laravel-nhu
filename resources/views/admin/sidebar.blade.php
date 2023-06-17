@@ -25,17 +25,6 @@
     </li>
     <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user (optional) 
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="/template/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
-            </div>
-        </div>
-
-        SidebarSearch Form -->
         <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
                 <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
@@ -99,7 +88,7 @@
 
                     </ul>
                 </li>
-                 <!--Quản lý slide -->
+                 <!--Quản lý slide 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-images"></i>
@@ -122,7 +111,7 @@
                         </li>
 
                     </ul>
-                </li>
+                </li> -->
                 <!--Quản lý đơn hàng -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
