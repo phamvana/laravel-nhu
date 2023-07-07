@@ -36,7 +36,7 @@ class ProductAdminService
     {
         $isValidPrice = $this->isValidPrice($request);
         if ($isValidPrice === false) return false;
-        //dd($request->all()); kiểm tra dữ liệu input từ form them sản pham mới - pva
+
         try {
             $request->except('_token');
             Product::create($request->all());
@@ -61,7 +61,7 @@ class ProductAdminService
     {
         $isValidPrice = $this->isValidPrice($request);
         if ($isValidPrice === false) return false;
-        
+
         try {
             $product->fill($request->input());
             $product->save();

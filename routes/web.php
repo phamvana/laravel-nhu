@@ -1,84 +1,71 @@
 <?php
 
-use App\User;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\ProductsHomeController;
-use App\Http\Controllers\PagesController;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\PostsController;
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CartsController;
-//Trang chủ
-Route::get('/', [
-    PagesController::class,
-    'index'
-]);
-//Thông tin
-Route::get('/about', [
-    PagesController::class,
-    'about'
-]);
-//Liên hệ
-Route::get('/lienhe', [
-    PagesController::class,
-    'contract'
-]);
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Users\LoginController;
+use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\UploadController;
+use App\Http\Controllers\Admin\CartController;
 
-//Sản phẩm
-Route::get('/products', [
-    ProductsController::class, 'index'
-]);
-//Route::get('san-pham/{id}-{slug}.html', [App\Http\Controllers\ProductController::class, 'index']);
-//Xem danh sách sản phẩm
-Route::get('/products-list', [
-    ProductsController::class, 'list'
-]);
-Route::get('/products-edit/{product}', [ProductsController::class, 'show']);
-Route::post('/products-edit/{product}', [ProductsController::class, 'update']);
-Route::DELETE('/products-destroy', [ProductsController::class, 'destroy']);
-//Thêm danh sách sản phẩm
-Route::get('/products-add', [
-    ProductsController::class, 'add'
-]);
-Route::post('/products-add', [
-    ProductsController::class, 'store'
-]);
+Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
+Route::post('admin/users/login/store', [LoginController::class, 'store']);
 
+Route::middleware(['auth'])->group(function () {
 
+    Route::prefix('admin')->group(function () {
 
-//Danh mục sản phẩm
-Route::get('/category-add', [
-    CategoryController::class, 'index'
-]);
-Route::post('/category-add', [CategoryController::class, 'store']);
+        Route::get('/', [MainController::class, 'index'])->name('admin');
+        Route::get('main', [MainController::class, 'index']);
 
-Route::get('/category-list', [
-    CategoryController::class, 'list'
-]);
-Route::get('/category-edit/{menu}', [CategoryController::class, 'show']);
-Route::post('/category-edit/{menu}', [CategoryController::class, 'update']);
-Route::DELETE('category-destroy', [CategoryController::class, 'destroy']);
+        #Danh mục sản phẩm
+        Route::prefix('menus')->group(function () {
+            Route::get('add', [MenuController::class, 'create']);
+            Route::post('add', [MenuController::class, 'store']);
+            Route::get('list', [MenuController::class, 'index']);
+            Route::get('edit/{menu}', [MenuController::class, 'show']);
+            Route::post('edit/{menu}', [MenuController::class, 'update']);
+            Route::DELETE('destroy', [MenuController::class, 'destroy']);
+        });
 
-//Quản lý slide
+        #Product
+        Route::prefix('products')->group(function () {
+            Route::get('add', [ProductController::class, 'create']);
+            Route::post('add', [ProductController::class, 'store']);
+            Route::get('list', [ProductController::class, 'index']);
+            Route::get('edit/{product}', [ProductController::class, 'show']);
+            Route::post('edit/{product}', [ProductController::class, 'update']);
+            Route::DELETE('destroy', [ProductController::class, 'destroy']);
+        });
 
+        #Slider
+        Route::prefix('sliders')->group(function () {
+            Route::get('add', [SliderController::class, 'create']);
+            Route::post('add', [SliderController::class, 'store']);
+            Route::get('list', [SliderController::class, 'index']);
+            Route::get('edit/{slider}', [SliderController::class, 'show']);
+            Route::post('edit/{slider}', [SliderController::class, 'update']);
+            Route::DELETE('destroy', [SliderController::class, 'destroy']);
+        });
 
+        #Upload
+        Route::post('upload/services', [UploadController::class, 'store']);
 
-// Carts
-Route::get('/cart-admin', [
-    CartsController::class, 'index'
-]);
+        #Cart
+        Route::get('customers', [CartController::class, 'index']);
+        Route::get('customers/view/{customer}', [CartController::class, 'show']);
+    });
+});
 
-//dịch vụ
-Route::get('service', [
-    ServiceController::class,
-    'index'
-]);
+Route::get('/', [App\Http\Controllers\MainController::class, 'index']);
+Route::post('/services/load-product', [App\Http\Controllers\MainController::class, 'loadProduct']);
 
+Route::get('danh-muc/{id}-{slug}.html', [App\Http\Controllers\MenuController::class, 'index']);
+Route::get('san-pham/{id}-{slug}.html', [App\Http\Controllers\ProductController::class, 'index']);
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-//Route::get('/home/menus/add', [HomeController::class,'index']);
-// Upload file image
-Route::post('/upload', [\App\Http\Controllers\UploadController::class, 'store']);
+Route::post('add-cart', [App\Http\Controllers\CartController::class, 'index']);
+Route::get('carts', [App\Http\Controllers\CartController::class, 'show']);
+Route::post('update-cart', [App\Http\Controllers\CartController::class, 'update']);
+Route::get('carts/delete/{id}', [App\Http\Controllers\CartController::class, 'remove']);
+Route::post('carts', [App\Http\Controllers\CartController::class, 'addCart']);

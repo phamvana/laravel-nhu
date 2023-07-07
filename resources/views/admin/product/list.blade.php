@@ -25,11 +25,11 @@
                 <td>{!! \App\Helpers\Helper::active($product->active) !!}</td>
                 <td>{{ $product->updated_at }}</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" href="/products-edit/{{ $product->id }}">
+                    <a class="btn btn-primary btn-sm" href="/admin/products/edit/{{ $product->id }}">
                         <i class="fas fa-edit"></i>
                     </a>
                     <a href="#" class="btn btn-danger btn-sm"
-                       onclick="removeRow({{ $product->id }}, '/products-destroy')">
+                       onclick="removeRow({{ $product->id }}, '/admin/products/destroy')">
                         <i class="fas fa-trash"></i>
                     </a>
                 </td>
@@ -39,7 +39,8 @@
     </table>
 
     <div class="card-footer clearfix">
-       
+        {!! $products->links() !!}
     </div>
 @endsection
+
 
